@@ -1,29 +1,36 @@
 {
-	"name": "initial-commit",
-	"version": "0.1.2",
-	"description": "Starting template for repository",
+	"name": "log",
+	"version": "0.0.1",
+	"description": "Dynamic console logging - log using the optimal console method",
+	"main": "dist/index.min.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"test": "echo 'No tests found'",
+		"build": "tsc -p .",
+		"minify": "jsmin -o dist/index.min.js dist/index.js",
+		"prod": "yarn build && yarn minify",
 		"release-minor": "release-it minor --ci",
 		"release-patch": "release-it patch --ci",
 		"release-major": "release-it major --ci",
 		"changelog-local": "npx auto-changelog"
 	},
-	"keywords": [],
+	"keywords": [
+		"debugging",
+		"console log",
+		"developer tools"
+	],
 	"author": "Atanas Atanasov <scriptex.bg@gmail.com> (https://atanas.info)",
-	"repository": "https://github.com/scriptex/initial-commit",
+	"repository": "https://github.com/scriptex/log",
 	"bugs": {
-		"url": "https://github.com/scriptex/initial-commit/issues",
+		"url": "https://github.com/scriptex/log/issues",
 		"email": "scriptex.bg@gmail.com"
 	},
 	"license": "MIT",
-	"dependencies": {
-		"release-it": "14.4.1"
+	"dependencies": {},
+	"devDependencies": {
+		"jsmin": "1.0.1",
+		"release-it": "14.4.1",
+		"typescript": "4.2.2"
 	},
-	"devDependencies": {},
-	"browserslist": [],
-	"main": "index.js",
-	"private": true,
 	"release-it": {
 		"hooks": {
 			"after:release": "yarn changelog-local && git add CHANGELOG.md && git commit -m \"Update CHANGELOG.md with the latest changes\" && git push"
