@@ -67,6 +67,22 @@ log(class A {});
 log(Array);
 log(Function);
 log(new Function());
+
+// Map
+const map = new Map();
+
+map.set('key1', 'value1');
+map.set('key2', 'value2');
+
+log(map);
+
+// set
+const set = new Set();
+
+set.add('value1');
+set.add('value2');
+
+log(set);
 ```
 
 ## Support this project
