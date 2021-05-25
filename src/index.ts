@@ -29,6 +29,8 @@ export const log = (
 ): unknown => {
 	let fn = 'log';
 
+	const isMap = input instanceof Map;
+	const isSet = input instanceof Set;
 	const isNull = input === null;
 	const isArray = Array.isArray(input);
 	const isError = input instanceof Error && typeof input.message !== 'undefined';
@@ -38,16 +40,24 @@ export const log = (
 	const isFunction = typeof input === 'function';
 	const isConstructor = isConstructable(input);
 
-	if (isJsObject) {
+	if (isJsObject || isMap) {
 		fn = 'dir';
 	}
 
-	if (isArray) {
+	if (isArray || isSet) {
 		fn = 'table';
 	}
 
 	if (isError || isRegExp || isFunction || isConstructor) {
 		input = input.toString();
+	}
+
+	if (isMap) {
+		input = Object.fromEntries(input);
+	}
+
+	if (isSet) {
+		input = Array.from(input);
 	}
 
 	const func = method || fn;
