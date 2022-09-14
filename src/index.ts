@@ -21,7 +21,7 @@ const on = (fn: UnknownFunction | null, input: unknown): unknown => {
 	return;
 };
 
-export const log = (
+const log = (
 	input: any,
 	method: string = '',
 	beforeLog: UnknownFunction | null = null,

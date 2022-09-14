@@ -1,90 +1,33 @@
 {
-	"name": "log",
-	"version": "1.1.0",
+	"name": "smart-log",
+	"version": "1.0.0",
 	"description": "Dynamic console logging - log using the optimal console method",
-	"main": "dist/index.min.js",
-	"types": "dist/index.d.ts",
-	"scripts": {
-		"build": "tsc -p .",
-		"minify": "jsmin -o dist/index.min.js dist/index.js",
-		"prod": "yarn build && yarn minify",
-		"release-minor": "release-it minor --ci",
-		"release-patch": "release-it patch --ci",
-		"release-major": "release-it major --ci",
-		"changelog-local": "npx auto-changelog"
-	},
 	"keywords": [
-		"debugging",
-		"console log",
-		"developer tools"
+		"Log",
+		"Console",
+		"Debugging",
+		"Console log",
+		"Developer tools"
 	],
-	"author": "Atanas Atanasov <scriptex.bg@gmail.com> (https://atanas.info)",
-	"repository": "https://github.com/scriptex/log",
+	"homepage": "https://atanas.info/projects/log.html",
 	"bugs": {
 		"url": "https://github.com/scriptex/log/issues",
-		"email": "scriptex.bg@gmail.com"
+		"email": "hi@atanas.info"
 	},
 	"license": "MIT",
+	"author": "Atanas Atanasov <hi@atanas.info> (https://atanas.info)",
+	"funding": "https://github.com/sponsors/scriptex",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "github:scriptex/log"
+	},
+	"scripts": {
+		"build": "tsc -p ."
+	},
 	"dependencies": {},
 	"devDependencies": {
-		"jsmin": "1.0.1",
-		"release-it": "15.4.1",
 		"typescript": "4.8.3"
-	},
-	"release-it": {
-		"hooks": {
-			"after:release": "yarn changelog-local && git add CHANGELOG.md && git commit -m \"Update CHANGELOG.md with the latest changes\" && git push"
-		},
-		"git": {
-			"changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
-			"requireCleanWorkingDir": true,
-			"requireBranch": false,
-			"requireUpstream": false,
-			"requireCommits": false,
-			"addUntrackedFiles": false,
-			"commit": true,
-			"commitMessage": "Release ${version}",
-			"commitArgs": [],
-			"tag": true,
-			"tagName": null,
-			"tagAnnotation": "Release ${version}",
-			"tagArgs": [],
-			"push": true,
-			"pushArgs": [
-				"--follow-tags"
-			],
-			"pushRepo": ""
-		},
-		"npm": {
-			"publish": false,
-			"publishPath": ".",
-			"tag": null,
-			"otp": null,
-			"ignoreVersion": false,
-			"skipChecks": false,
-			"timeout": 10
-		},
-		"github": {
-			"release": false,
-			"releaseName": "Release ${version}",
-			"releaseNotes": null,
-			"preRelease": false,
-			"draft": false,
-			"tokenRef": "GITHUB_TOKEN",
-			"assets": null,
-			"host": null,
-			"timeout": 0,
-			"proxy": null,
-			"skipChecks": false
-		},
-		"gitlab": {
-			"release": false,
-			"releaseName": "Release ${version}",
-			"releaseNotes": null,
-			"tokenRef": "GITLAB_TOKEN",
-			"assets": null,
-			"origin": null,
-			"skipChecks": false
-		}
 	}
 }
